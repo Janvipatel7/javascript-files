@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./assets/css/bootstrap.css">
+</head>
+<body>
+
+    <div class="m-4">
+        <p>value 1:- <input type="number" id="v1"></p>
+        <p>value 2:- <input type="number" id="v2"></p>
+        <p>value 3:- <input type="number" id="v3"></p>
+
+        <button class="btn btn-danger" id="max">Max</button>
+        <button class="btn btn-danger" id="min">Min</button>
+        <button class="btn btn-success" id="random">Random Value </button>
+        <button class="btn btn-success" id="clear">Clear </button>
+
+        <h1 id="ans"> </h1>
+    </div>
+    
+
+    <script src="./assets/js/jquery.js"></script>
+    <script src="./assets/js/index.js"></script>
+    <script>
+
+        
+        function min(a , b , c , h1){
+            // if(a < b){
+            //     if(a < c){
+            //         h1.innerHTML = `The smallest number is ${a}`
+            //     }else{
+            //         h1.innerHTML = `The smallest number is ${c}`
+            //     }
+            // }else if(b < c){
+            //     h1.innerHTML = `The smallest number is ${b}`
+            // }else{
+            //     h1.innerHTML = `The smallest number is ${c}`
+            // }
+           
+            h1.innerHTML = `The smallest number is ${Math.min(a , b , c)}`;
+        }
+        function max(a , b , c , h1){
+            // if(a > b){
+            //     if(a > c){
+            //         h1.innerHTML = `The  maximum  number is ${a}`
+            //     }else{
+            //         h1.innerHTML = `The  maximum  number is ${c}`
+            //     }
+            // }else if(b > c){
+            //     h1.innerHTML = `The  maximum  number is ${b}`
+            // }else{
+            //     h1.innerHTML = `The  maximum  number is ${c}`
+            // }
+            let large = Math.max(a , b , c)
+            h1.innerHTML = `The maximum number is ${large}`;
+        }
+        
+
+        $(document).ready(function(){
+            let h1 = document.getElementById("ans")
+
+            $("#min").on("click", function(){
+                let v1 = Number(document.getElementById("v1").value)
+                let v2 = Number(document.getElementById("v2").value)
+                let v3 = Number(document.getElementById("v3").value)
+
+                min(v1 , v2 , v3 , h1)
+            })
+
+            $("#max").on("click", function(){
+                let v1 = Number(document.getElementById("v1").value)
+                let v2 = Number(document.getElementById("v2").value)
+                let v3 = Number(document.getElementById("v3").value)
+
+                max(v1 , v2 , v3 , h1)
+            })
+
+            $("#random").on("click", function(){
+                let v1 =document.getElementById("v1")
+                let v2 =document.getElementById("v2")
+                let v3 =document.getElementById("v3")
+
+                v1.value = parseInt(Math.random() * 100)
+                v2.value = parseInt(Math.random() * 100)
+                v3.value = parseInt(Math.random() * 100)
+            })
+
+            $("#clear").on("click" , function(){
+                 v1.value = ""
+                 v2.value = ""
+                 v3.value = ""
+
+                h1.innerHTML = ""
+            })
+        })
+    </script>
+</body>
+</html>
