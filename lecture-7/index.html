@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./assets/css/bootstrap.css">
+</head>
+
+<body>
+    <section>
+        <form action="" id="form">
+            <div class="container">
+                <h1 class="text-center my-4">Form Validation</h1>
+                <div class="row">
+                    <div class="col-6">
+                        <label for="name">Name :</label>
+                        <input type="text" id="name" name="name" class="my-3 form-control">
+                    </div>
+                    <div class="col-6">
+                        <label for="mail">E-mail :</label>
+                        <input type="email" id="mail" name="mail" class="my-3 form-control">
+                    </div>
+                    <div class="col-6">
+                        <label for="pass">Password :</label>
+                        <input type="password" id="pass" name="pass" class="my-3 form-control">
+                    </div>
+                    <div class="col-6">
+                        <label for="c-pass">Confirm Password :</label>
+                        <input type="password" id="c-pass" name="c-pass" class="my-3 form-control">
+                    </div>
+
+
+                </div>
+                <button class="btn btn-success" id="sub">Submit</button>
+            </div>
+        </form>
+    </section>
+</body>
+
+<script src="./assets/js/jquery.js"></script>
+<script src="./assets/js/index.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+
+    $(document).ready(function () {
+        let nameEl = document.getElementById("name")
+        let mail = document.getElementById("mail")
+        let pass = document.getElementById("pass")
+        let cpass = document.getElementById("c-pass")
+        let form = document.getElementById("form")
+
+        $("#sub").on("click", function (e) {
+            e.preventDefault()
+            //for Name
+
+            if (nameEl.value.trim() == "") {
+                Swal.fire("Name Required!");
+
+                return;
+            }
+            //for email
+            if (mail.value.trim() == "") {
+                Swal.fire("Email Required!");
+                return
+            }
+
+            //for password
+            if (pass.value.trim() == "" || cpass.value.trim() == "") {
+                Swal.fire("Password And Confirm-Password Required!");
+                return;
+            }else if(pass.value.length<4){
+                Swal.fire("Password Must Be Atleast 4 Character!");
+                return
+            }else if(pass.value != cpass.value){
+                Swal.fire("Password & Confirm-Password Must Be Same!!!");
+                return;
+            }
+
+
+            Swal.fire({
+            title: "Welcome !",
+            icon: "Form Submitted Successfully!!!!!",
+            draggable: true
+            }).then(() => {
+                form.submit()
+            });
+        })
+    })
+</script>
+
+</html>
