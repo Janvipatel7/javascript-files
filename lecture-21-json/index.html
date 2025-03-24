@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./assets/css/bootstrap.css">
+</head>
+<body>
+   <section class="container mt-4">
+    <form action="">
+        <div>
+            <label for="name">Name :</label>
+            <input type="text" name="name" id="name" class="form-control">
+        </div>
+        <br>
+        <div>
+            <label for="grid">GRID :</label>
+            <input type="number" name="grid" id="grid" class="form-control">
+        </div>
+        <br>
+        <button class="btn btn-primary">Submit</button>
+    </form>
+    
+   </section>
+
+   <script>
+     document.querySelector(".btn").addEventListener("click" , () => {
+        let nameStr = document.querySelector("#name").value
+        let grid = document.querySelector("#grid").value
+
+
+        let obj = {
+            name : nameStr,
+            grid,
+        }
+
+        // localStorage.setItem("student" , JSON.stringify(obj))
+
+        let arr = JSON.parse( localStorage.getItem("student") )|| []
+
+
+        arr.push(obj);
+
+        localStorage.setItem("student" , JSON.stringify(arr));
+        window.location = "./student,html"
+
+
+     })
+   </script>
+</body>
+</html>
