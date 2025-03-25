@@ -3,35 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>student</title>
+    <title>Student List</title>
     <link rel="stylesheet" href="./assets/css/bootstrap.css">
 </head>
 <body>
     
     <table class="table table-success table-striped">
         <thead>
-            <tr >
-              <th scope="col">#</th>
-              <th scope="col">NAME </th>
-              <th scope="col">GRID </th>
-            
+            <tr>
+              <th>Name</th>
+              <th>GRID</th>
             </tr>
-          </thead>
-          <tbody id="datatable">
-            <!-- <tr >
-              <th  scope="row">1</th>
-              <td ></td>
-              <td ></td>
-            </tr> -->
-          </tbody>
+        </thead>
+        <tbody id="dataTable">
+        </tbody>
     </table>
 
     <script>
-        const studentObj = JSON.parse(localStorage.getItem("student"));
-
-        let  data = document.getElementById("#datatable");
-
         
+        const studentObj = JSON.parse(localStorage.getItem("student")) || [];
+
+        let data = document.getElementById("dataTable"); 
+        data.innerHTML = ""; 
+
+        studentObj.forEach((student) => {
+            let row = `<tr>
+                <td>${student.name}</td>
+                <td>${student.grid}</td>
+            </tr>`
+            data.innerHTML += row;
+        });
     </script>
+
 </body>
 </html>

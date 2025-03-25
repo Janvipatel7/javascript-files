@@ -25,25 +25,26 @@
    </section>
 
    <script>
-     document.querySelector(".btn").addEventListener("click" , () => {
-        let nameStr = document.querySelector("#name").value
-        let grid = document.querySelector("#grid").value
+     document.querySelector(".btn").addEventListener("click", (event) => {
+        event.preventDefault();
+        let nameStr = document.querySelector("#name").value;
+        let grid = document.querySelector("#grid").value;
 
 
         let obj = {
             name : nameStr,
-            grid,
+            grid : grid,
         }
 
         // localStorage.setItem("student" , JSON.stringify(obj))
 
-        let arr = JSON.parse( localStorage.getItem("student") )|| []
+        let arr = JSON.parse( localStorage.getItem("student") )|| [];
 
 
         arr.push(obj);
 
         localStorage.setItem("student" , JSON.stringify(arr));
-        window.location = "./student,html"
+        window.location = "./student.html";
 
 
      })
