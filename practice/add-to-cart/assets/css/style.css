@@ -1,0 +1,14 @@
+.container{
+    max-width: 1320px;
+    margin: auto;
+}
+.d-flex{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.cart-btn {
+    border: none;
+    background: none;
+    font-size: 20px;
+}
