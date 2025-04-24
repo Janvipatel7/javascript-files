@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f2f2f2;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            font-weight: bold;
+            display: block;
+            margin-top: 15px;
+        }
+
+        input[type="text"],
+        select {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .gender-group {
+            margin-top: 5px;
+        }
+
+        .gender-group label {
+            font-weight: normal;
+            margin-right: 10px;
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #007bff;
+            border: none;
+            color: white;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 30px;
+        }
+
+        th,
+        td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #007bff;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <label for="name">Name : </label>
+    <input type="text" id="name"><br>
+    <label for="email">email : </label>
+    <input type="text" id="email">
+    <label for="gender">gender : </label>
+    <input type="radio" id="mgender" name="gender" value="male">Male
+    <input type="radio" id="fgender" name="gender" value="female">Female
+    <label for="name">City : </label>
+    <select name="" id="city">
+        <option value="-1">----Select City----</option>
+        <option value="1">Surat</option>
+        <option value="2">Vapi</option>
+        <option value="3">Rajkot</option>
+    </select>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Name :</th>
+                <th>email :</th>
+                <th>gender :</th>
+                <th>City :</th>
+            </tr>
+        </thead>
+        <tbody id="table-content">
+
+        </tbody>
+    </table>
+
+    <button id="create">Create</button>
+    <script>
+        let arr = []
+        let name = document.getElementById("name");
+        let email = document.getElementById("email");
+        let city = document.getElementById("city");
+        document.getElementById("create").addEventListener("click", function () {
+            let gender = document.querySelector(`input[type="radio"]:checked`);
+            let obj = {
+                name: name.value,
+                email: email.value,
+                gender: gender.value,
+                city: city.value
+            }
+
+            arr.push(obj)
+            console.log(arr);
+            display(arr)
+            name.value = ""
+            email.value = ""
+            gender.checked = false
+            city.value = "-1"
+        })
+        function display(arr) {
+
+            let tablec = document.getElementById("table-content")
+            tablec.innerHTML = ""
+            arr.forEach((items, idx) => {
+                tablec.innerHTML += `
+                    <tr>
+                <td>${items.name}</td>
+                <td>${items.email}</td>
+                <td>${items.gender}</td>
+                <td>${convertCity(items.city)}</td>
+                <td><button onclick="update(${idx})">Update</button></td>
+                <td><button onclick="delete()">Delete</button></td>
+            </tr>
+                `
+            })
+        }
+        function convertCity(value) {
+            switch (value) {
+                case "1":
+                    return "Surat"
+                    break;
+                case "2":
+                    return "vapi"
+                    break;
+                case "3":
+                    return "rajkot"
+                    break;
+
+                default: "undefined city"
+                    break;
+            }
+        }
+        function update(idx) {
+            console.log(arr[idx].name);
+            name.value = arr[idx].name
+            email.value = arr[idx].email
+            document.querySelector(`input[value="${arr[idx].gender}"]`).checked = true
+            city.value = arr[idx].city
+            arr.splice(idx, 1)
+        }
+
+
+    </script>
+</body>
+
+</html>
