@@ -31,9 +31,9 @@
                 </div>
                 <div class="my-4">
                     <label for="gender">Gender :</label>
-                    <input type="radio" name="gender" id="female">
+                    <input type="radio" name="gender" id="female" value="Female">
                     <label for="gender">Female </label>
-                    <input type="radio" name="gender" id="male">
+                    <input type="radio" name="gender" id="male" value="male">
                     <label for="gender">Male </label>
                 </div>
                 <div class="my-4">
@@ -54,7 +54,7 @@
     <section class="container">
         <h2>Student Details Table</h2>
         <div class="table-scroll d-flex justify-content-sm-center justify-content-start">
-            <table class="table table-success table-striped" id="tableDetails">
+            <table class="table table-success table-striped">
                 <thead>
                     <tr>
                         <th class="text-nowrap">Name</th>
@@ -63,21 +63,15 @@
                         <th class="text-nowrap">Address</th>
                         <th class="text-nowrap">Gender</th>
                         <th class="text-nowrap">City</th>
+                        <th class="text-nowrap">Action</th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
+                <tbody  id="tableDetails">
+                   
                 </tbody>
             </table>
         </div>
     </section>
-    <script src="./assets/js/index.js"></script>
+    <script src="../form-validation/assets/js/index.js"></script>
 </body>
 </html>

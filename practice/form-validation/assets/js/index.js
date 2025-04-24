@@ -5,8 +5,9 @@ let address = document.getElementById("address");
 let city = document.getElementById("city");
 
 let arr = []
-let sub = document.getElementById("sub").addEventListener("click" , ()=>{
-    let gender = document.querySelectorAll(`input[type="radio"]:checked`);
+let sub = document.getElementById("sub").addEventListener("click" , (e)=>{
+    e.preventDefault()
+    let gender = document.querySelector(`input[type="radio"]:checked`);
     let obj = {
         name: name.value,
         email: email.value,
@@ -34,7 +35,7 @@ function display(arr){
                 <td>${item.address}</td>
                 <td>${item.gender}</td>
                 <td>${convertCity(item.city)}</td>
-                <td><button class="btn btn-waring">Update</button>
+                <td><button class="btn btn-warning">Update</button>
                 <td><button class="btn btn-danger">Delete</button>
                 
             </tr>
@@ -57,5 +58,4 @@ function convertCity(value){
             break;
     }
 }
-
-display();
+display(arr);
