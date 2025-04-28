@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+<body>
+    <section class="pb-4">
+        <div class="container">
+            <h2>Student Registration Form</h2>
+            <form id="">
+                <div class="my-4">
+                    <label for="name">Name :</label>
+                    <input type="text" name="name" id="name" placeholder="Enter Your Name" class="form-control">
+                    <p>Enter Name!!</p>
+                </div>
+                <div class="my-4">
+                    <label for="mail">Email :</label>
+                    <input type="email" name="mail" id="email" placeholder="Enter Your Email" class="form-control">
+                </div>
+                <div class="my-4">
+                    <label for="date">Date :</label>
+                    <input type="date" name="date" id="date" class="form-control">
+                </div>
+                <div class="my-4">
+                    <label for="address">Address :</label>
+                    <textarea name="address" id="address" class="form-control"></textarea>
+                </div>
+                <div class="my-4">
+                    <label for="gender">Gender :</label>
+                    <input type="radio" name="gender" id="female" value="Female">
+                    <label for="gender">Female </label>
+                    <input type="radio" name="gender" id="male" value="male">
+                    <label for="gender">Male </label>
+                </div>
+                <div class="my-4">
+                    <select name="select" id="city" class="form-control">
+                        <option value="-1">----Select Any City----</option>
+                        <option value="1">Surat</option>
+                        <option value="2">Jamnagar</option>
+                        <option value="3">Rajkot</option>
+                    </select>
+                </div>
+                <div>
+                    <button class="btn btn-success" id="sub">Submit</button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <section class="container">
+        <h2>Student Details Table</h2>
+        <div class="table-scroll d-flex justify-content-sm-center justify-content-start">
+            <table class="table table-success table-striped">
+                <thead>
+                    <tr>
+                        <th class="text-nowrap">Name</th>
+                        <th class="text-nowrap">Email</th>
+                        <th class="text-nowrap">Date</th>
+                        <th class="text-nowrap">Address</th>
+                        <th class="text-nowrap">Gender</th>
+                        <th class="text-nowrap">City</th>
+                        <th class="text-nowrap">Action</th>
+                    </tr>
+                </thead>
+                <tbody  id="tableDetails">
+                   
+                </tbody>
+            </table>
+        </div>
+    </section>
+    <script src="../form-validation/assets/js/index.js"></script>
+</body>
+</html>
